@@ -4,10 +4,20 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
       <StatusBar style="auto" />
+      <Text>Hello World!</Text>
+      <Greeting name="Bob" />
+      <Greeting name="Mike" />
     </View>
   );
+}
+
+const Greeting = (props) => {
+  return (
+    <View>
+      <Text>Hello {props.name}</Text>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
