@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 export default function App() {
   const [count, setCount] = useState(0);
 
+  const numbers = [...Array(100)].map((_, i) => "hoge" + i)
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -16,6 +18,9 @@ export default function App() {
         title="Add Count."
       />
       <Text>Current count is {count}</Text>
+      {numbers.map((number) => (
+        <Text>{number}</Text>
+      ))}
     </View>
   );
 }
