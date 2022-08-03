@@ -1,11 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, FlatList } from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
   const [count, setCount] = useState(0);
 
-  const numbers = [...Array(100)].map((_, i) => "hoge" + i)
+  const DATA = [
+    {
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      title: 'First Item',
+    },
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      title: 'Second Item',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Third Item',
+    },
+  ];
 
   return (
     <ScrollView>
@@ -19,9 +32,14 @@ export default function App() {
           title="Add Count."
         />
         <Text>Current count is {count}</Text>
-        {numbers.map((number) => (
-          <Text>{number}</Text>
-        ))}
+        <FlatList
+          data={DATA}
+          renderItem={({item}) => (
+            <View key={item.id}>
+              <Text>{item.title}</Text>
+            </View>
+          )}
+        />
       </View>
     </ScrollView>
   );
