@@ -1,5 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ScrollView, FlatList } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
@@ -35,9 +44,12 @@ export default function App() {
         <FlatList
           data={DATA}
           renderItem={({item}) => (
-            <View key={item.id}>
+            <TouchableOpacity
+              key={item.id}
+              onPress={() => Alert.alert("title", item.title)}
+            >
               <Text>{item.title}</Text>
-            </View>
+            </TouchableOpacity>
           )}
         />
       </View>
